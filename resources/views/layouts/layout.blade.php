@@ -179,13 +179,13 @@
 
 					<div class="topbar-language rs1-select2">
 						<select class="selection-1" name="time">
-							<option>USD</option>
 							<option>EUR</option>
+							<option>USD</option>
 						</select>
 					</div>
 
 					<!--  -->
-					<a href="#" class="header-wrapicon1 dis-block m-l-30">
+					<a href="{{ url('/login') }}" class="header-wrapicon1 dis-block m-l-30">
 						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
 					</a>
 
