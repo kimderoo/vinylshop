@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Role;
 
 class AdminUsersController extends Controller
 {
@@ -24,6 +26,8 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
+        $roles = Role::pluck('name','id')->all();
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
