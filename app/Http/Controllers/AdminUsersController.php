@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\User;
 use App\Role;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUsersController extends Controller
 {
@@ -16,6 +19,8 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
+        $users = User::paginate(5);
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -26,9 +31,9 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        $user = User::all();
+        $user = new User;
         $roles = Role::all();
-        return view('admin.users.create', compact('user, roles'));
+        return view('admin.users.create', compact('user', 'roles'));
     }
 
     /**
@@ -40,6 +45,21 @@ class AdminUsersController extends Controller
     public function store(Request $request)
     {
         //
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        } else{
+            $input = $request->all();
+            $input['password'] = Hash::make($request['password']);
+        }
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        $input['password'] = Hash::make($request['password']);
+        User::create($input);
+        return redirect('users');
     }
 
     /**
