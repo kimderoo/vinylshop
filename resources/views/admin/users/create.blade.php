@@ -49,7 +49,7 @@
             </div>
             @csrf
 
-            <button class="btn btn-outline-success" type="submit">SUBMIT</button>
+            <button class="btn btn-outline-success" type="submit">Create</button>
 
         </form>
     </div>
