@@ -7,6 +7,7 @@ use App\Genre;
 use App\Photo;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RecordsController extends Controller
 {
@@ -92,6 +93,16 @@ class RecordsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $record = Record::findOrFail($id);
+        $input = $request->all();
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        $record->update($input);
+        return redirect('/records');
     }
 
     /**
@@ -103,5 +114,12 @@ class RecordsController extends Controller
     public function destroy($id)
     {
         //
+        $record = Record::findOrFail($id);
+        if($record->photo_id){  
+        unlink(public_path() . $record->photo->file);
+        }
+        $record->delete();
+        Session::flash('deleted_record','The record has been deleted');
+        return redirect('/records');
     }
 }

@@ -35,6 +35,12 @@
                 <div>{{ $errors->first('description')}}</div>
             </div>
 
+            <label for="price">Price:</label>
+            <div class="form-group">
+                <input type="text" name="price" value="{{old('price') ?? $record->price}}" class="form-control">
+                <div>{{ $errors->first('price')}}</div>
+            </div>
+
             <label for="role_id">Genre:</label>
             <div class="form-group">
                 <select name="role_id" id="role_id" class="form-control">
