@@ -20,7 +20,7 @@ class CreateRecordsTable extends Migration
             $table->string('label');
             $table->string('description');
             $table->string('price');
-            $table->unsignedBigInteger('role_id')->default(0);
+            $table->unsignedBigInteger('genre_id')->default(0);
             $table->string('photo_id')->default('');
             $table->timestamps();
         });

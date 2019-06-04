@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Record;
+use App\Genre;
+use App\Photo;
+
 use Illuminate\Http\Request;
 
 class RecordsController extends Controller
@@ -14,6 +18,9 @@ class RecordsController extends Controller
     public function index()
     {
         //
+        $records = Record::paginate(5);
+        return view('admin.records.index', compact('records'));
+    
     }
 
     /**
@@ -24,6 +31,9 @@ class RecordsController extends Controller
     public function create()
     {
         //
+        $record = new Record;
+        $genres = Genre::all();
+        return view('admin.records.create', compact('record', 'genres'));
     }
 
     /**
@@ -35,6 +45,16 @@ class RecordsController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        Record::create($input);
+
+        return redirect('records');
     }
 
     /**
@@ -56,7 +76,10 @@ class RecordsController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 
+        $record = Record::findOrFail($id);
+        $genres = Genre::all();
+        return view('admin.records.edit', compact('record','genres'));
     }
 
     /**

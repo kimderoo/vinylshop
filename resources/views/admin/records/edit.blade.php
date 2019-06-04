@@ -3,31 +3,43 @@
 
 <div class="row">
     <div class="col-12 m-1">
-        <h5>Edit User: {{$user->name}}</h5>
+        <h5>Edit record: {{$record->name}}</h5>
     </div>
 </div>
 
 <div class="row">
     <div class="col-4 m-1 mt-4">
-        <form method="POST" action="{{Route('users.update', ['user' => $user])}}" enctype="multipart/form-data">
+        <form method="POST" action="{{Route('records.update', ['record' => $record])}}" enctype="multipart/form-data">
             @method('PATCH')
             <label for="name">Name:</label>
             <div class="form-group">
-                <input type="text" name="name" value="{{ old('name') ?? $user->name}}" class="form-control">
+                <input type="text" name="name" value="{{ old('name') ?? $record->name}}" class="form-control">
                 <div>{{ $errors->first('name')}}</div>
             </div>
 
-            <label for="email">Email:</label>
+            <label for="artist">Artist:</label>
             <div class="form-group">
-                <input type="text" name="email" value="{{old('email') ?? $user->email}}" class="form-control">
-                <div>{{ $errors->first('email')}}</div>
+                <input type="text" name="artist" value="{{old('artist') ?? $record->artist}}" class="form-control">
+                <div>{{ $errors->first('artist')}}</div>
             </div>
 
-            <label for="role_id">Role:</label>
+            <label for="label">Label:</label>
+            <div class="form-group">
+                <input type="text" name="label" value="{{old('label') ?? $record->label}}" class="form-control">
+                <div>{{ $errors->first('label')}}</div>
+            </div>
+
+            <label for="description">Description:</label>
+            <div class="form-group">
+                <input type="text" name="description" value="{{old('description') ?? $record->description}}" class="form-control">
+                <div>{{ $errors->first('description')}}</div>
+            </div>
+
+            <label for="role_id">Genre:</label>
             <div class="form-group">
                 <select name="role_id" id="role_id" class="form-control">
-                    @foreach ($roles as $role)
-                    <option value="{{$role->id}}" {{ $role->id == $user->role_id ? 'selected' : ''}}>{{$role->name}}
+                    @foreach ($genres as $genre)
+                    <option value="{{$genre->id}}" {{ $genre->id == $record->genre_id ? 'selected' : ''}}>{{$genre->name}}
                     </option>
                     @endforeach
                 </select>
@@ -51,10 +63,10 @@
 
 <div class="row">
     <div class="col-4 m-1 mt-3">
-        <form action="{{route('users.destroy', $user->id)}}" method="POST">
+        <form action="{{route('records.destroy', $record->id)}}" method="POST">
             @method('DELETE')
             @csrf
-            <button type="submit" class="btn btn-outline-danger">Delete {{$user->name}} </button>
+            <button type="submit" class="btn btn-outline-danger">Delete {{$record->name}} </button>
         </form>
     </div>
 </div>

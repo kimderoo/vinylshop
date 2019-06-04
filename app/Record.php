@@ -8,16 +8,15 @@ class Record extends Model
 {
     //
     protected $fillable = [
-        'name', 'photo_id'
+        'name', 'artist', 'label', 'description', 'price',  'genre_id', 'photo_id', 
     ];
 
-    public function role(){
+    public function genre(){
         return $this->belongsTo('App\Genre');
     }
 
     public function photo(){
         return $this->belongsTo('App\Photo');
         }
-
 
 }
