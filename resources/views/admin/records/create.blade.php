@@ -3,12 +3,12 @@
 <div class="row">
 
     <div class="col-12 m-1">
-        <h5>Create New User</h5>
+        <h5>Create New Record</h5>
     </div>
 </div>
 <div class="row">
     <div class="col-4 m-1">
-        <form method="POST" action="{{Route('users.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{Route('records.store')}}" enctype="multipart/form-data">
 
             <label for="name">Name:</label>
             <div class="form-group">

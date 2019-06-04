@@ -15,6 +15,13 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('artist');
+            $table->string('label');
+            $table->string('description');
+            $table->string('price');
+            $table->unsignedBigInteger('role_id')->default(0);
+            $table->string('photo_id')->default('');
             $table->timestamps();
         });
     }

@@ -22,3 +22,6 @@ Route::get('/admin', 'DashboardController@index');
 
 
 Route::resource('users','AdminUsersController');
+Route::resource('roles','RolesController');
+Route::resource('records','RecordsController');
+Route::resource('genres','GenresController');
