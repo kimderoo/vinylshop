@@ -41,9 +41,9 @@
                 <div>{{ $errors->first('price')}}</div>
             </div>
 
-            <label for="role_id">Genre:</label>
+            <label for="genre_id">Genre:</label>
             <div class="form-group">
-                <select name="role_id" id="role_id" class="form-control">
+                <select name="genre_id" id="genre_id" class="form-control">
                     @foreach ($genres as $genre)
                     <option value="{{$genre->id}}" {{ $genre->id == $record->genre_id ? 'selected' : ''}}>{{$genre->name}}
                     </option>

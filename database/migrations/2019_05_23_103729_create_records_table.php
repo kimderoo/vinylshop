@@ -19,7 +19,7 @@ class CreateRecordsTable extends Migration
             $table->string('artist');
             $table->string('label');
             $table->string('description');
-            $table->string('price');
+            $table->decimal('price',8,2);
             $table->unsignedBigInteger('genre_id')->default(0);
             $table->string('photo_id')->default('');
             $table->timestamps();

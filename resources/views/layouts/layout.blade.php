@@ -28,7 +28,7 @@
 	<div class="wrap_header fixed-header2 trans-0-4">
 		<!-- Logo -->
 		<a href="index.html" class="logo">
-			<img src="images/icons/logo.png" alt="IMG-LOGO">
+			<img src="{{ asset("images/icons/logo.png") }}" alt="IMG-LOGO">
 		</a>
 
 		<!-- Menu -->
@@ -36,31 +36,16 @@
 			<nav class="menu">
 				<ul class="main_menu">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="{{ url('/') }}">Home</a>
 					</li>
-
 					<li>
-						<a href="product.html">Shop</a>
+						<a href="{{ url('products') }}">Shop</a>
 					</li>
-
-					<li class="sale-noti">
-						<a href="product.html">Sale</a>
-					</li>
-
 					<li>
-						<a href="cart.html">Features</a>
+						<a href="{{ url('blog') }}">Blog</a>
 					</li>
-
 					<li>
-						<a href="blog.html">Blog</a>
-					</li>
-
-					<li>
-						<a href="about.html">About</a>
-					</li>
-
-					<li>
-						<a href="contact.html">Contact</a>
+						<a href="{{ url('contact-us') }}">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -69,13 +54,13 @@
 		<!-- Header Icon -->
 		<div class="header-icons">
 			<a href="#" class="header-wrapicon1 dis-block">
-				<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+				<img src="{{ asset("images/icons/icon-header-01.png") }}" class="header-icon1" alt="ICON">
 			</a>
 
 			<span class="linedivide1"></span>
 
 			<div class="header-wrapicon2">
-				<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+				<img src="{{ asset("images/icons/icon-header-02.png") }}" class="header-icon1 js-show-header-dropdown" alt="ICON">
 				<span class="header-icons-noti">0</span>
 
 				<!-- Header cart noti -->
@@ -83,7 +68,7 @@
 					<ul class="header-cart-wrapitem">
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">
-								<img src="images/item-cart-01.jpg" alt="IMG">
+								<img src="{{ asset("images/item-cart-01.jpg") }}" alt="IMG">
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -99,7 +84,7 @@
 
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">
-								<img src="images/item-cart-02.jpg" alt="IMG">
+								<img src="{{ asset("images/item-cart-02.jpg") }}" alt="IMG">
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -115,7 +100,7 @@
 
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">
-								<img src="images/item-cart-03.jpg" alt="IMG">
+								<img src="{{ asset("images/item-cart-03.jpg") }}" alt="IMG">
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -169,7 +154,7 @@
 
 				<!-- Logo2 -->
 				<a href="index.html" class="logo2">
-					<img src="images/icons/logo.png" alt="IMG-LOGO">
+					<img src="{{ asset("images/icons/logo.png") }}" alt="IMG-LOGO">
 				</a>
 
 				<div class="topbar-child2">
@@ -186,13 +171,13 @@
 
 					<!--  -->
 					<a href="{{ url('/login') }}" class="header-wrapicon1 dis-block m-l-30">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+						<img src="{{ asset("images/icons/icon-header-01.png") }}" class="header-icon1" alt="ICON">
 					</a>
 
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2 m-r-13">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown"
+						<img src="{{ asset("images/icons/icon-header-02.png") }}" class="header-icon1 js-show-header-dropdown"
 							alt="ICON">
 						<span class="header-icons-noti">0</span>
 
@@ -201,7 +186,7 @@
 							<ul class="header-cart-wrapitem">
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-01.jpg" alt="IMG">
+										<img src="{{ asset("images/item-cart-01.jpg") }}" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -217,7 +202,7 @@
 
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-02.jpg" alt="IMG">
+										<img src="{{ asset("images/item-cart-02.jpg") }}" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -233,7 +218,7 @@
 
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-03.jpg" alt="IMG">
+										<img src="{{ asset("images/item-cart-03.jpg") }}" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -279,31 +264,16 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="{{ url('/') }}">Home</a>
 							</li>
-
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="{{ url('products') }}">Shop</a>
 							</li>
-
-							<li class="sale-noti">
-								<a href="product.html">Sale</a>
-							</li>
-
 							<li>
-								<a href="cart.html">Features</a>
+								<a href="{{ url('blog') }}">Blog</a>
 							</li>
-
 							<li>
-								<a href="blog.html">Blog</a>
-							</li>
-
-							<li>
-								<a href="about.html">About</a>
-							</li>
-
-							<li>
-								<a href="contact.html">Contact</a>
+								<a href="{{ url('contact-us') }}">Contact</a>
 							</li>
 							@guest
 								<li class="nav-item">
@@ -351,7 +321,7 @@
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
 			<a href="index.html" class="logo-mobile">
-				<img src="images/icons/logo.png" alt="IMG-LOGO">
+				<img src="{{ asset("images/icons/logo.png") }}" alt="IMG-LOGO">
 			</a>
 
 			<!-- Button show menu -->
@@ -359,13 +329,13 @@
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
 					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+						<img src="{{ asset("images/icons/icon-header-01.png") }}" class="header-icon1" alt="ICON">
 					</a>
 
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown"
+						<img src="{{ asset("images/icons/icon-header-02.png") }}" class="header-icon1 js-show-header-dropdown"
 							alt="ICON">
 						<span class="header-icons-noti">0</span>
 
@@ -374,7 +344,7 @@
 							<ul class="header-cart-wrapitem">
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-01.jpg" alt="IMG">
+										<img src="{{ asset("images/item-cart-01.jpg") }}" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -390,7 +360,7 @@
 
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-02.jpg" alt="IMG">
+										<img src="{{ asset("images/item-cart-02.jpg") }}" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -406,7 +376,7 @@
 
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-03.jpg" alt="IMG">
+										<img src="{{ asset("images/item-cart-03.jpg") }}" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -696,23 +666,23 @@
 
 		<div class="t-center p-l-15 p-r-15">
 			<a href="#">
-				<img class="h-size2" src="images/icons/paypal.png" alt="IMG-PAYPAL">
+				<img class="h-size2" src="{{ asset("images/icons/paypal.png") }}" alt="IMG-PAYPAL">
 			</a>
 
 			<a href="#">
-				<img class="h-size2" src="images/icons/visa.png" alt="IMG-VISA">
+				<img class="h-size2" src="{{ asset("images/icons/visa.png") }}" alt="IMG-VISA">
 			</a>
 
 			<a href="#">
-				<img class="h-size2" src="images/icons/mastercard.png" alt="IMG-MASTERCARD">
+				<img class="h-size2" src="{{ asset("images/icons/mastercard.png") }}" alt="IMG-MASTERCARD">
 			</a>
 
 			<a href="#">
-				<img class="h-size2" src="images/icons/express.png" alt="IMG-EXPRESS">
+				<img class="h-size2" src="{{ asset("images/icons/express.png") }}" alt="IMG-EXPRESS">
 			</a>
 
 			<a href="#">
-				<img class="h-size2" src="images/icons/discover.png" alt="IMG-DISCOVER">
+				<img class="h-size2" src="{{ asset("images/icons/discover.png") }}" alt="IMG-DISCOVER">
 			</a>
 
 			<div class="t-center s-text8 p-t-20">
@@ -739,7 +709,7 @@
 			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
 
 			<div class="wrap-video-mo-01">
-				<div class="w-full wrap-pic-w op-0-0"><img src="images/icons/video-16-9.jpg" alt="IMG"></div>
+				<div class="w-full wrap-pic-w op-0-0"><img src="{{ asset("images/icons/video-16-9.jpg") }}" alt="IMG"></div>
 				<div class="video-mo-01">
 					<iframe src="https://www.youtube.com/embed/Nt8ZrWY2Cmk?rel=0&amp;showinfo=0"
 						allowfullscreen></iframe>

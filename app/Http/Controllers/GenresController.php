@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Genre;
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 
 class GenresController extends Controller
 {
@@ -14,6 +17,8 @@ class GenresController extends Controller
     public function index()
     {
         //
+        $genres = Genre::all();
+        return view('admin.genres.index', compact('genres'));
     }
 
     /**
@@ -24,6 +29,7 @@ class GenresController extends Controller
     public function create()
     {
         //
+        return view('admin.genres.create');
     }
 
     /**
@@ -35,6 +41,10 @@ class GenresController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+
+        Genre::create($input);
+        return redirect('genres');
     }
 
     /**
@@ -57,6 +67,8 @@ class GenresController extends Controller
     public function edit($id)
     {
         //
+        $genre = Genre::findOrFail($id); //ophalen van alle velden uit DB.
+        return view('admin.genres.edit', compact('genre'));
     }
 
     /**
@@ -69,6 +81,9 @@ class GenresController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $genre = Genre::findOrFail($id);
+        $genre->update($request->all());
+        return redirect('/genres');
     }
 
     /**
@@ -80,5 +95,9 @@ class GenresController extends Controller
     public function destroy($id)
     {
         //
+        $genre = Genre::findOrFail($id);
+        $genre->delete();
+
+        return redirect('/genres');
     }
 }
