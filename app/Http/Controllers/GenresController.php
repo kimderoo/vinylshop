@@ -44,7 +44,7 @@ class GenresController extends Controller
         $input = $request->all();
 
         Genre::create($input);
-        return redirect('genres');
+        return redirect('admin/genres');
     }
 
     /**
@@ -83,7 +83,7 @@ class GenresController extends Controller
         //
         $genre = Genre::findOrFail($id);
         $genre->update($request->all());
-        return redirect('/genres');
+        return redirect('admin/genres');
     }
 
     /**
@@ -98,6 +98,6 @@ class GenresController extends Controller
         $genre = Genre::findOrFail($id);
         $genre->delete();
 
-        return redirect('/genres');
+        return redirect('admin/genres');
     }
 }

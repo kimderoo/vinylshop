@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +64,7 @@ class AdminUsersController extends Controller
         }
         $input['password'] = Hash::make($request['password']);
         User::create($input);
-        return redirect('users');
+        return redirect('admin/users');
     }
 
     /**
@@ -117,7 +118,7 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
         $user->update($input);
-        return redirect('/users');
+        return redirect('admin/users');
     }
 
     /**
@@ -135,6 +136,6 @@ class AdminUsersController extends Controller
         }
         $user->delete();
         Session::flash('deleted_user','The user has been deleted');
-        return redirect('users');
+        return redirect('admin/users');
     }
 }

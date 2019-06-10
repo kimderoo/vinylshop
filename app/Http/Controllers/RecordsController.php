@@ -55,7 +55,7 @@ class RecordsController extends Controller
         }
         Record::create($input);
 
-        return redirect('records');
+        return redirect('admin/records');
     }
 
     /**
@@ -102,7 +102,7 @@ class RecordsController extends Controller
             $input['photo_id'] = $photo->id;
         }
         $record->update($input);
-        return redirect('/records');
+        return redirect('admin/records');
     }
 
     /**
@@ -120,6 +120,6 @@ class RecordsController extends Controller
         }
         $record->delete();
         Session::flash('deleted_record','The record has been deleted');
-        return redirect('/records');
+        return redirect('admin/records');
     }
 }

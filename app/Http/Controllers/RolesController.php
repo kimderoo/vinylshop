@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 
 class RolesController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +47,7 @@ class RolesController extends Controller
         $input = $request->all();
 
         Role::create($input);
-        return redirect('roles');
+        return redirect('admin/roles');
     }
 
     /**
@@ -86,7 +87,7 @@ class RolesController extends Controller
         //
         $role = Role::findOrFail($id);
         $role->update($request->all());
-        return redirect('/roles');
+        return redirect('admin/roles');
     }
 
     /**
@@ -101,6 +102,6 @@ class RolesController extends Controller
         $role = Role::findOrFail($id);
         $role->delete();
 
-        return redirect('/roles');
+        return redirect('admin/roles');
     }
 }
