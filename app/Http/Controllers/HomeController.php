@@ -39,9 +39,17 @@ class HomeController extends Controller
     public function products(){
         return view('products');
     }
-    public function product_details(){
-        return view('product_details');
+    public function product_details($id){
+        $record = Record::find($id);
+        $related = Record::where('genre_id', $record->genre_id)
+                ->where('id', '!=', $record->id)
+                ->orderBy('name', 'desc')
+                ->get();
+        return view('product_details', array('record' => $record,'name'=>$record->name,
+            'description'=>$record->description, 'page'=>'records',
+            'genres'=>$this->genres, 'records'=>$this->records, 'related' =>$related ));
     }
+
     public function product_categories(){
         return view('products');
     }

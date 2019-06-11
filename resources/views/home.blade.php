@@ -15,7 +15,7 @@
                         <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
                             <!-- Block2 -->
                             <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
                                     <img src="{{$record->photo ? asset($record->photo->file) : 'http://placehold.it/400x400'}}" class="h-100 img-fluid" alt="IMG-PRODUCT">
 
                                     <div class="block2-overlay trans-0-4">
@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="block2-txt p-t-20">
-                                    <a href="{{url('products/details/' . $record->id)}}" class="block2-name dis-block s-text3 p-b-5">
+                                    <a href="{{ url('products/details/'.$record->id) }}" class="block2-name dis-block s-text3 p-b-5">
                                          {{ $record->name }}
                                     </a>
 

@@ -711,8 +711,7 @@
 			<div class="wrap-video-mo-01">
 				<div class="w-full wrap-pic-w op-0-0"><img src="{{ asset("images/icons/video-16-9.jpg") }}" alt="IMG"></div>
 				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/Nt8ZrWY2Cmk?rel=0&amp;showinfo=0"
-						allowfullscreen></iframe>
+					<iframe src="https://open.spotify.com/embed/user/116740403/playlist/3uRR0lDKAVsFYcQ1waUEbM" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 				</div>
 			</div>
 		</div>
