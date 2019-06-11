@@ -27,7 +27,7 @@
 	<!-- header fixed -->
 	<div class="wrap_header fixed-header2 trans-0-4">
 		<!-- Logo -->
-		<a href="index.html" class="logo">
+		<a href="{{ url('/') }}" class="logo">
 			<img src="{{ asset("images/icons/logo.png") }}" alt="IMG-LOGO">
 		</a>
 
