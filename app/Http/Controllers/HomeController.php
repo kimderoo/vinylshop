@@ -8,6 +8,7 @@ use App\Role;
 use Illuminate\Support\Facades\Request;
 use App\Http\Requests;
 use Cart;
+Use Braintree;
 
 class HomeController extends Controller
 {
@@ -101,7 +102,15 @@ class HomeController extends Controller
             Cart::remove($item->rowId);
         }
 
-        return view('cart',compact('cart'));
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+        $token = $gateway->ClientToken()->generate();
+        return view('cart',compact('token','cart')
+        );
     }
 
     public function clear_cart(){
