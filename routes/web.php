@@ -27,6 +27,8 @@ Route::get('/cart', 'HomeController@cart');
 Route::post('/cart','HomeController@cart');
 Route::get('/clear-cart', 'HomeController@clear_cart');
 Route::get('/search/{query}','HomeController@search');
+Route::get('/complete','OrdersController@index')->name('complete');
+
 
 
 
@@ -79,7 +81,8 @@ Route::post('/checkout', function(){
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
-        return back()->with('success_message', 'Transaction success. The ID is:'. $transaction->id);
+        $mytransaction = 'Transaction success. The ID is:'. $transaction->id;
+        return view('complete',compact('mytransaction'));
     } else {
         $errorString = "";
         foreach($result->errors->deepAll() as $error) {
