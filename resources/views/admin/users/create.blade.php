@@ -12,17 +12,22 @@
 
             <label for="name">Name:</label>
             <div class="form-group">
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" value="{{ old('name') ?? $user->name}}" class="form-control">
+                <div>{{ $errors->first('name')}}</div>
             </div>
 
             <label for="email">Email:</label>
             <div class="form-group">
-                <input type="text" name="email" class="form-control">
+                <input type="text" name="email" value="{{old('email') ?? $user->email}}" class="form-control">
+                <div>{{ $errors->first('email')}}</div>
             </div>
 
             <label for="password">Password:</label>
             <div class="form-group">
-                <input type="password" name="password" id="password" class="form-control">
+                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
+                @error('password')
+                    <div>{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="row">

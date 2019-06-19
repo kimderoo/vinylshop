@@ -44,10 +44,13 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2|unique:roles,name'
+        ]);
+        
         $input = $request->all();
-
         Role::create($input);
-        return redirect('admin/roles');
+        return redirect('admin/roles')->with('success','Role has been created!');
     }
 
     /**
@@ -85,6 +88,10 @@ class RolesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2|unique:roles,name'
+        ]);
+        
         $role = Role::findOrFail($id);
         $role->update($request->all());
         return redirect('admin/roles');
@@ -104,4 +111,5 @@ class RolesController extends Controller
 
         return redirect('admin/roles');
     }
+    
 }

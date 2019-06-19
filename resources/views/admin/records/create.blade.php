@@ -15,14 +15,16 @@
                 <div class="col-6">
                     <label for="name">Name:</label>
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name" value="{{ old('name') ?? $record->name}}" class="form-control">
+                        <div>{{ $errors->first('name')}}</div>
                     </div>
                 </div>
                 
                 <div class="col-6">
                     <label for="artist">Artist:</label>
                     <div class="form-group">
-                        <input type="text" name="artist" class="form-control">
+                        <input type="text" name="artist" value="{{old('artist') ?? $record->artist}}" class="form-control">
+                        <div>{{ $errors->first('artist')}}</div>
                     </div>
                 </div>
             
@@ -30,16 +32,20 @@
 
             <label for="label">Label:</label>
             <div class="form-group">
-                <input type="text" name="label" class="form-control">
+                <input type="text" name="label" value="{{old('label') ?? $record->label}}" class="form-control">
+                <div>{{ $errors->first('label')}}</div>
             </div>
 
-            <label for="description">Description</label>
-            <textarea class="form-control" name="description" rows="3"></textarea>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" value="{{old('description') ?? $record->description}}" name="description" rows="3"></textarea>
+                <div>{{ $errors->first('description')}}</div>
+            </div>
 
-            
             <label for="price">Price:</label>
             <div class="form-group">
-                <input type="text" name="price" class="form-control">
+                <input type="text" name="price" value="{{old('price') ?? $record->price}}" class="form-control">
+                <div>{{ $errors->first('price')}}</div>
             </div>
 
             <div class="row">

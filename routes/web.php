@@ -86,7 +86,7 @@ Route::post('/checkout', function(){
         // header("Location: transaction.php?id=" . $transaction->id);
         $mytransaction = 'Transaction success. The ID is:'. $transaction->id;
         $cart = Cart::content();
-        return view('complete',compact('mytransaction', $cart));
+        return view('complete',compact('mytransaction', 'cart'));
     } else {
         $errorString = "";
         foreach($result->errors->deepAll() as $error) {

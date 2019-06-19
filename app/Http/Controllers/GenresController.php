@@ -41,6 +41,10 @@ class GenresController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2|unique:genres,name'
+        ]);
+        
         $input = $request->all();
 
         Genre::create($input);
@@ -81,6 +85,10 @@ class GenresController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2|unique:genres,name'
+        ]);
+
         $genre = Genre::findOrFail($id);
         $genre->update($request->all());
         return redirect('admin/genres');
@@ -100,4 +108,6 @@ class GenresController extends Controller
 
         return redirect('admin/genres');
     }
+
+
 }

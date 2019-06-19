@@ -50,6 +50,12 @@ class AdminUsersController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2|unique:users,name',
+            'email' => 'required|email|min:2|unique:users,email',
+            'password' => 'min:6'
+        ]);
+
         if(trim($request->password) == ''){
             $input = $request->except('password');
         } else{
@@ -102,6 +108,12 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2',
+            'email' => 'required|email|min:2',
+            'password' => 'min:6'
+        ]);
+
         $user = User::findOrFail($id);
         if(trim($request->password) == ''){
             $input = $request->except('password');

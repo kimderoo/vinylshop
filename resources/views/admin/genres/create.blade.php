@@ -12,13 +12,16 @@
 
             <label for="name">Name:</label>
             <div class="form-group">
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror">
             </div>
 
             @csrf
 
             <button class="btn btn-outline-success" type="submit">Create</button>
 
+            @error('name')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </form>
     </div>
 </div>
