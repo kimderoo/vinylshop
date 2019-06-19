@@ -4,15 +4,35 @@ use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        //
-        DB::table('roles')->insert(['name' =>'administrator']);
-        DB::table('roles')->insert(['name' =>'customer']);
+        
+
+        \DB::table('roles')->delete();
+        
+        \DB::table('roles')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'name' => 'administrator',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'name' => 'customer',
+                'created_at' => NULL,
+                'updated_at' => '2019-06-10 21:07:30',
+            ),
+        ));
+        
+        
     }
 }

@@ -69,6 +69,58 @@ class RecordsTableSeeder extends Seeder
                 'created_at' => '2019-06-06 17:23:12',
                 'updated_at' => '2019-06-06 17:23:12',
             ),
+            4 => 
+            array (
+                'id' => 8,
+                'name' => 'New Orleans Classics',
+                'artist' => 'Various',
+                'label' => 'Metro Records',
+                'description' => 'Vinyl, LP, Compilation',
+                'price' => '2',
+                'genre_id' => 9,
+                'photo_id' => '11',
+                'created_at' => '2019-06-19 13:42:53',
+                'updated_at' => '2019-06-19 13:44:56',
+            ),
+            5 => 
+            array (
+                'id' => 9,
+                'name' => 'Live',
+                'artist' => 'Massada',
+                'label' => 'Kendari Records',
+                'description' => '2xLP, Album, Gat',
+                'price' => '2',
+                'genre_id' => 11,
+                'photo_id' => '12',
+                'created_at' => '2019-06-19 13:46:30',
+                'updated_at' => '2019-06-19 13:48:23',
+            ),
+            6 => 
+            array (
+                'id' => 10,
+                'name' => 'Spy In The House Of Love',
+            'artist' => 'Was (Not Was)',
+                'label' => 'Fontana',
+                'description' => 'Vinyl, 12", EP, 45 RPM',
+                'price' => '2',
+                'genre_id' => 5,
+                'photo_id' => '13',
+                'created_at' => '2019-06-19 13:49:27',
+                'updated_at' => '2019-06-19 13:49:27',
+            ),
+            7 => 
+            array (
+                'id' => 11,
+                'name' => 'Open The Doors To Your Heart',
+                'artist' => 'J.O.B. Orquestra',
+                'label' => 'Sudarshan Disc',
+                'description' => 'Vinyl, LP, Album',
+                'price' => '2',
+                'genre_id' => 10,
+                'photo_id' => '14',
+                'created_at' => '2019-06-19 13:50:38',
+                'updated_at' => '2019-06-19 13:50:38',
+            ),
         ));
         
         
