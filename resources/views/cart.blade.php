@@ -104,11 +104,9 @@
 				<input id="nonce" name="payment_method_nonce" type="hidden" />
 				<div class="size15 trans-0-4">
 					<!-- Button -->
-					<a href="{{ route('complete') }}">
 						<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
 							Checkout
 						</button>
-					</a>
 				</div>
 			</div>
 		</form>

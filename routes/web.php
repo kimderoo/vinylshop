@@ -29,7 +29,10 @@ Route::get('/cart', 'HomeController@cart');
 Route::post('/cart','HomeController@cart');
 Route::get('/clear-cart', 'HomeController@clear_cart');
 Route::get('/search/{query}','HomeController@search');
-Route::get('/complete','OrdersController@index')->name('complete');
+
+
+Route::resource('orders','OrdersController');
+
 
 
 
@@ -47,6 +50,7 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::resource('roles','RolesController');
     Route::resource('records','RecordsController');
     Route::resource('genres','GenresController');
+    Route::resource('orders','AdminOrdersController');
 });
 
 
@@ -83,7 +87,7 @@ Route::post('/checkout', function(){
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
-        $mytransaction = 'Transaction success. The ID is:'. $transaction->id;
+        $mytransaction = $transaction->id;
         $cart = Cart::content();
         return view('complete',compact('mytransaction', 'cart'));
     } else {

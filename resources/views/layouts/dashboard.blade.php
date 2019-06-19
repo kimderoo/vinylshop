@@ -116,6 +116,19 @@
           </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="true"
+              aria-controls="collapseOrders">
+              <i class="fas fa-truck"></i>
+              <span>Orders</span>
+            </a>
+            <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">Order actions:</h6>
+                <a class="collapse-item" href="{{ route('orders.index') }}">Order List</a>
+              </div>
+            </div>
+          </li>
         
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -287,7 +300,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kim De Roo</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->

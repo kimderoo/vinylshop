@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
-use Cart;
 
-
-class OrdersController extends Controller
+class AdminOrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,8 @@ class OrdersController extends Controller
     public function index()
     {
         //
-        return view('complete');
+        $orders = Order::paginate(5);
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -39,12 +38,6 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         //
-        $input = $request->all();
-
-        Order::create($input);
-        Cart::destroy();
-        return redirect('home');
-
     }
 
     /**
