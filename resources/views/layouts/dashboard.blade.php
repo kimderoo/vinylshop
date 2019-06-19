@@ -42,7 +42,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ url('/admin') }}">
             <i class="fas fa-fw fa-cog"></i>
           <span>Dashboard Home</span></a>
       </li>
@@ -125,7 +125,7 @@
             <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Order actions:</h6>
-                <a class="collapse-item" href="{{ route('orders.index') }}">Order List</a>
+                <a class="collapse-item" href="{{ route('adminorders.index') }}">Order List</a>
               </div>
             </div>
           </li>

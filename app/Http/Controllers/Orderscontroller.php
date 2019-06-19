@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\User;
 use Cart;
 
 
@@ -41,7 +42,12 @@ class OrdersController extends Controller
         //
         $input = $request->all();
 
-        Order::create($input);
+        /*Order::create($input);*/
+        $user = User::findOrFail($request->user_id);
+        $order = new Order($input);
+        $user->orders()->save($order);
+
+
         Cart::destroy();
         return redirect('home');
 

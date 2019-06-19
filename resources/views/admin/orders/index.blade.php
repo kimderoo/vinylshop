@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{$order->id}}</td>
                     <td>{{$order->token}}</td>
-                    <td>{{$order->user ? $order->user->name : 'order without user'}}</td>
+                    <td>{{$order->users ? $order->users[0]->name : 'order without user'}}</td>
                     <td>{{$order->created_at}}</td>
                     <td>{{$order->updated_at}}</td>
                 </tr>

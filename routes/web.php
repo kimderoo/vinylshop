@@ -50,7 +50,7 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::resource('roles','RolesController');
     Route::resource('records','RecordsController');
     Route::resource('genres','GenresController');
-    Route::resource('orders','AdminOrdersController');
+    Route::resource('adminorders','AdminOrdersController');
 });
 
 
@@ -85,11 +85,17 @@ Route::post('/checkout', function(){
     ]);// keuze ofwel naar braintree ofwel naar tabel in database
 
     if ($result->success) {
-        $transaction = $result->transaction;
-        // header("Location: transaction.php?id=" . $transaction->id);
-        $mytransaction = $transaction->id;
-        $cart = Cart::content();
-        return view('complete',compact('mytransaction', 'cart'));
+        if(Auth::check()){
+            $transaction = $result->transaction;
+            // header("Location: transaction.php?id=" . $transaction->id);
+            $mytransaction = $transaction->id;
+            $cart = Cart::content();
+            return view('complete',compact('mytransaction', 'cart'));
+        }
+        else {
+            return redirect('/login');
+        }
+        
     } else {
         $errorString = "";
         foreach($result->errors->deepAll() as $error) {
