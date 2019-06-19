@@ -22,7 +22,7 @@ Route::get('/products/categories', 'HomeController@product_categories');
 Route::get('/products/brands', 'HomeController@product_brands');
 Route::get('/blog','HomeController@blog');
 Route::get('/blog/post/{id}', 'HomeController@blog_post');
-Route::get('/contact-us', 'HomeController@contact_us');
+Route::get('/register', 'HomeController@register')->name('register');
 Route::get('/login', 'HomeController@login');
 Route::get('/logout', 'HomeController@logout');
 Route::get('/checkout', 'HomeController@checkout');

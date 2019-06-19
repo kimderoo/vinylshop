@@ -40,7 +40,10 @@ class HomeController extends Controller
         return view('home', compact('records','genres'));
     }
     public function products(){
-        return view('products');
+        
+        $genres = Genre::all();
+        $records = Record::orderBy('id','desc')->get();
+        return view('products', compact('records','genres'));
     }
     public function product_details($id){
         $record = Record::find($id);
@@ -65,9 +68,6 @@ class HomeController extends Controller
     }
     public function blog_post($id){
         return view('blog_post');
-    }
-    public function contact_us(){
-        return view('contact_us');
     }
 
     public function welcome(){

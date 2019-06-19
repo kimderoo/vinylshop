@@ -86,13 +86,7 @@ class RecordsController extends Controller
     public function edit($id)
     {
         // 
-        $request->validate([
-            'name' => 'required|min:2|unique:records,name',
-            'artist' => 'required|min:2|unique:records,artist',
-            'label' => 'required|min:2|unique:records,label',
-            'description' => 'required|min:2',
-            'price' => 'required|numeric',
-        ]);
+        
         $record = Record::findOrFail($id);
         $genres = Genre::all();
         return view('admin.records.edit', compact('record','genres'));
@@ -108,6 +102,13 @@ class RecordsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required|min:2',
+            'artist' => 'required|min:2',
+            'label' => 'required|min:2',
+            'description' => 'required|min:2',
+            'price' => 'required|numeric',
+        ]);
         $record = Record::findOrFail($id);
         $input = $request->all();
         if($file = $request->file('photo_id')){

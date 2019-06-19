@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/themify/themify-icons.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/elegant-font/html-css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/noui/nouislider.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css')}}">
@@ -43,9 +44,6 @@
 					</li>
 					<li>
 						<a href="{{ url('blog') }}">Blog</a>
-					</li>
-					<li>
-						<a href="{{ url('contact-us') }}">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -153,7 +151,7 @@
 				</div>
 
 				<!-- Logo2 -->
-				<a href="index.html" class="logo2">
+				<a href="{{ url('/') }}" class="logo2">
 					<img src="{{ asset("images/icons/logo.png") }}" alt="IMG-LOGO">
 				</a>
 
@@ -271,9 +269,6 @@
 							</li>
 							<li>
 								<a href="{{ url('blog') }}">Blog</a>
-							</li>
-							<li>
-								<a href="{{ url('contact-us') }}">Contact</a>
 							</li>
 							@guest
 								<li class="nav-item">
@@ -728,6 +723,8 @@
 			dropdownParent: $('#dropDownSelect1')
 		});
 	</script>
+	<script type="text/javascript" src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('vendor/daterangepicker/daterangepicker.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('vendor/slick/slick.min.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('js/slick-custom.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('vendor/countdowntime/countdowntime.js')}}"></script>
@@ -747,6 +744,30 @@
 				swal(nameProduct, "is added to wishlist !", "success");
 			});
 		});
+	</script>
+	<script type="text/javascript" src="{{ asset('vendor/noui/nouislider.min.js')}}"></script>
+	<script type="text/javascript">
+		/*[ No ui ]
+	    ===========================================================*/
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 50, 200 ],
+	        connect: true,
+	        range: {
+	            'min': 50,
+	            'max': 200
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
+	    });
 	</script>
 	<script type="text/javascript" src="{{ asset('vendor/parallax100/parallax100.js')}}"></script>
 	<script type="text/javascript">
