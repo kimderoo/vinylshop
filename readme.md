@@ -9,7 +9,9 @@ Create a new database in PhpMyadmin
 
 
 
+
 Find the "env.example" file and save as "env"
+
 Fill in the following env fields with your custom database and Braintree keys:
 
 ```
