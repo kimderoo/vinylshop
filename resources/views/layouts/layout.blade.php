@@ -296,7 +296,10 @@
 											style="display: none;">
 											@csrf
 										</form>
+										@if(Auth::user()->role->id == 1)
+                                    	
 										<a class="dropdown-item" href="{{ url('/admin') }}">Dashboard</a>
+                                  		@endif
 									</div>
 									
 								</li>

@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Role')->withDefault(2);
     }
 
     public function photo(){
